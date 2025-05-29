@@ -1,0 +1,110 @@
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 2rem;
+  gap: 4rem;
+}
+
+.bannerWrapper {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* or 70vh based on your design */
+  overflow: hidden;
+}
+
+.bannerImage {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: first baseline;
+  gap: 2rem;
+  padding: 1rem;
+}
+.bannerContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background-color: rgba(var(--primary-color-rgb), 0.4); /* 50% transparent */
+  backdrop-filter: blur(4px);
+}
+
+.bannerHeading {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.bannerSubtext {
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+}
+
+.textContainer h1 {
+  font-size: 2.2rem;
+}
+.textContainer h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.textContainer p {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+button:hover,
+button:active {
+  background-color: var(--secondory-color);
+  color: var(--text-light);
+}
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+@media (min-width: 37.5rem) {
+  .textContainer {
+    flex-direction: row;
+  }
+  .bannerContent {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .textLeft,
+  .textRight {
+    flex: 1;
+  }
+}
+@media (min-width: 64rem) {
+}
+/* @media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+} */

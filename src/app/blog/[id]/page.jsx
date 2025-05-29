@@ -1,7 +1,8 @@
 import React from "react";
+import styles from "./page.module.css";
 
 function BlogPost() {
-  return <div>Blog page</div>;
+  return <section className={styles.pageHeader}>Blog page</section>;
 }
 
 export default BlogPost;
