@@ -1,6 +1,11 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const navLinks = [
     { id: 1, name: "Home", path: "/" },
     { id: 2, name: "About", path: "/about" },
@@ -11,15 +16,31 @@ function Navbar() {
   ];
 
   return (
-    <div>
-      <nav>
+    <nav className={styles.nav}>
+      <a href="/" className={styles.logo}>
+        RNR
+      </a>
+
+      <button
+        className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-label="Toggle menu"
+      >
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+      </button>
+
+      <ul className={`${styles.navList} ${isOpen ? styles.open : ""}`}>
         {navLinks.map((link) => (
           <li key={link.id}>
             <Link href={link.path}>{link.name}</Link>
           </li>
         ))}
-      </nav>
-    </div>
+      </ul>
+
+      <button className={styles.btnLogout}>Login</button>
+    </nav>
   );
 }
 
